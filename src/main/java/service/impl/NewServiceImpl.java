@@ -108,6 +108,11 @@ public class NewServiceImpl implements NewService {
         return newDao.queryAllNews();
     }
 
+    @Override
+    public List<NewsData> selectNewsByCategory(int category) {
+        return newDao.queryNewDataByCategoryId(category);
+    }
+
 
     /*
      * 删除指定新闻

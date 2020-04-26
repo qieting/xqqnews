@@ -29,6 +29,11 @@ public interface NewDao {
     List<New> queryByCategoryId(@Param("categoryId") long categoryId);
 
     /*
+     * 根据类别id获取新闻数据
+     * */
+    List<NewsData> queryNewDataByCategoryId(@Param("categoryId") long categoryId);
+
+    /*
     * 根据作者Id获取作者所写的新闻列表
     * */
     List<NewsData> queryByUserId(@Param("userId") long userId);

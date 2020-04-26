@@ -29,6 +29,23 @@
         where category_id=#{categoryId}
         order by create_time desc
     </select>
+    <!-- 根据category获得新闻列表-->
+    <select id="queryNewDataByCategoryId" resultType="dto.NewsData">
+        select n.new_id "aNew.new_id",
+               n.category_id "aNew.category_id",
+               n.user_id "aNew.user_id",
+               n.title "aNew.title",
+               n.content "aNew.content",
+               n.create_time "aNew.create_time",
+               n.key_words "aNew.key_words",
+               category_name "typeName",
+               u.user_name
+        from new n,user u,category cate
+        where n.user_id=u.user_id
+          and n.category_id=cate.category_id
+          and cate.category_id=#{categoryId}
+    </select>
+
     <!-- 通过作者ID获得新闻列表-->
     <select id="queryByUserId" resultType="dto.NewsData">
         select n.new_id "aNew.new_id",

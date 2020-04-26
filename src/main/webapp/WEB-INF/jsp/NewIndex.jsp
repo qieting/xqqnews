@@ -42,14 +42,43 @@
 <div class="header">
 
 
-
     <div class="container">
-        <div class="logo">
-            <a href="index.html"><img src="${pageContext.request.contextPath}/resource/img/friends/fr-09.jpg"
-                                      class="img-responsive" alt="" style="width: 100px; height: 100px"/></a>
 
-            <label style="margin-left: 200px;font-size: 40px;margin: 0;color: #ffffff;">看神马新闻</label>
+        <div class="logo">
+            <div>
+                <a href="index.html"><img src="${pageContext.request.contextPath}/resource/img/friends/fr-09.jpg"
+                                          class="img-responsive" alt="" style="width: 100px; height: 100px"/></a>
+
+                <label style="margin-left: 200px;font-size: 40px;margin: 0;color: #ffffff;">看神马新闻</label>
+            </div>
+            <br>
+            <div class="form-panel" style='display:block'>
+                <form class="form-inline" role="form"
+                      action="/user/seleceByLike" method="post"
+                      style="display: contents">
+                    <div class="form-group" style="display: contents">
+                        <label class="sr-only" for="exampleInput1">模糊查询</label>
+                        <span style="color: rebeccapurple" id="tip1"></span>
+                        <input type="text" class="form-control" name="selectkey" id="exampleInput1"
+                               placeholder="模糊查询">
+                    </div>
+                    <button type="submit" class="btn btn-theme">查找</button>
+                </form>
+                <form class="form-inline"
+                      action="/user/seleceByKey"
+                      style="display: contents">
+                    <div class="form-group" style="display: contents">
+                        <label class="sr-only" for="exampleInput2">关键字查询</label>
+                        <span style="color: rebeccapurple" id="tip2"></span>
+                        <input type="text" class="form-control" id="exampleInput2" name="selectkey"
+                               placeholder="关键字查询">
+                    </div>
+                    <button type="submit" class="btn btn-theme">查找</button>
+                </form>
+
+            </div>
         </div>
+
 
 
 
@@ -60,7 +89,8 @@
             %>
             <h4>欢迎用户<%=user.getUserName()%>
                 <ul class="pull-right top-menu">
-                    <li><a class="logout" href="${pageContext.request.contextPath}/user/Logout?userName=<%=user.getUserName()%>">Logout</a>
+                    <li><a class="logout"
+                           href="${pageContext.request.contextPath}/user/Logout?userName=<%=user.getUserName()%>">Logout</a>
                     </li>
                 </ul>
             </h4>
@@ -92,8 +122,10 @@
                     });
                 });
             </script>
+
             <!-- script for menu -->
         </div>
+
         <div class="clearfix"></div>
     </div>
 </div>
@@ -156,12 +188,28 @@
                     </ul>
                 </div>
 
+
+                <div class="item">
+                    <header>
+                        <h2 class="with-line">新闻分类</h2>
+                    </header>
+                    <ul>
+                        <li><a href="indexByCategory.html?category=4">社会</a></li>
+                        <li><a href="indexByCategory.html?category=1">娱乐</a></li>
+                        <li><a href="indexByCategory.html?category=2">军事</a></li>
+                        <li><a href="indexByCategory.html?category=5">历史</a></li>
+                        <li><a href="indexByCategory.html?category=3">体育</a></li>
+                        <li><a href="indexByCategory.html?category=6">法制</a></li>
+                    </ul>
+                </div>
+
             </div>
+
+
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
-
 
 
 </body>

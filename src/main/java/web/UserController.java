@@ -71,6 +71,47 @@ public class UserController {
     }
 
     /*
+     * 跳转主页页面，目前弃用
+     * */
+    @RequestMapping(value = "/indexByCategory.html")
+    public String newsOfCategory(int category,Model model) {
+        NewList newList = newService.selectIndexNew();
+        List<NewsData> newsData = newService.selectNewsByCategory(category);
+        model.addAttribute("list", newList);
+        model.addAttribute("newData", newsData);
+        return "NewIndex";
+    }
+
+    /*
+     * 关键字查询新闻
+     * */
+    @RequestMapping(value = "/seleceByKey")
+    public String selectByKey(String selectkey, Model model) {
+         if (!selectkey.equals("")) {
+            List<NewsData> newsData = newService.selectNewsByKey(selectkey);
+            model.addAttribute("newData", newsData);
+            return "NewIndex";
+        } else {
+            return "redirect:index.html";
+        }
+    }
+
+    /*
+     * 模糊查询新闻
+     * */
+    @RequestMapping(value = "/seleceByLike")
+    public String selectNewsByLike(String selectkey, Model model) {
+          if (!selectkey.equals("")) {
+            List<NewsData> newsData = newService.selectNewsByLike(selectkey);
+            model.addAttribute("newData", newsData);
+            return "NewIndex";
+        } else {
+            return "redirect:index.html";
+        }
+    }
+
+
+    /*
      * 跳转到注册页面
      * */
     @RequestMapping(value = "/register.html")

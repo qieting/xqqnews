@@ -41,6 +41,12 @@ public interface NewService {
     List<NewsData> selectAllNews();
 
     /*
+     * 管理员查看所有发表新闻
+     * */
+    List<NewsData> selectNewsByCategory(int category);
+
+
+    /*
     * 删除指定新闻
     * 1.是用户本身删除自己的新闻：需要验证用户信息
     * 2.管理员删除不合格的新闻，验证用户是不是为管理员。

@@ -411,6 +411,7 @@
 <body style="color: #797979;background: #eaeaea;font-family: 'Ruda', sans-serif;padding: 0px !important;margin: 0px !important;
     font-size: 13px;">
 <div>
+    <a href="/user/index.html">返回新闻主界面</a>
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper site-min-height">
